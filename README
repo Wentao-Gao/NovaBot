@@ -1,8 +1,4 @@
-当然可以！以下是一个适用于你的 **Pololu 3pi+ 起步项目** 的 `README.md` 文件模板，已包含项目介绍、依赖、构建步骤、功能描述和扩展建议，格式专业清晰，适合直接推送到 GitHub：
 
----
-
-```markdown
 # 🚗 Pololu 3pi+ Starter Project
 
 This repository provides a minimal yet complete example for getting started with the [Pololu 3pi+ 32U4 Robot](https://www.pololu.com/product/3575), using `arduino-cli` and VSCode on macOS (or other platforms). It includes basic functionality like button-controlled motor movement, OLED output, LED indicators, and buzzer sounds.
