@@ -1,74 +1,85 @@
 
-# 🚗 Pololu 3pi+ Starter Project
+# 🌟 NovaBot
 
-This repository provides a minimal yet complete example for getting started with the [Pololu 3pi+ 32U4 Robot](https://www.pololu.com/product/3575), using `arduino-cli` and VSCode on macOS (or other platforms). It includes basic functionality like button-controlled motor movement, OLED output, LED indicators, and buzzer sounds.
+**NovaBot** is an evolving robotics platform that begins with low-level embedded control on the Pololu 3pi+ 32U4 and expands toward high-level AI capabilities—including voice, vision, and autonomous behavior—powered by Raspberry Pi and modern machine learning tools.
 
----
-
-## 📦 Project Features
-
-- ✅ Button A to start the robot
-- ✅ Buzzer plays startup sound
-- ✅ Yellow LED indicator when active
-- ✅ Motors: forward and backward loop
-- ✅ OLED displays status
+> From motion to cognition — this is a journey of growth, intelligence, and modular robotics.
 
 ---
 
-## 🧰 Requirements
+## 🚀 Project Goals
 
-- [Arduino CLI](https://arduino.github.io/arduino-cli/)
-- [VSCode](https://code.visualstudio.com/)
-- [Pololu A-Star Board Package](https://github.com/pololu/a-star)
-- USB connection to Pololu 3pi+ 32U4
-- Arduino libraries:
-  - `Pololu3piPlus32U4`
-
----
-
-## 📂 Project Structure
-
-```
-
-3pi\_base/
-├── 3pi\_base.ino            # Main Arduino sketch
-└── .vscode/
-└── arduino.json        # Board and port configuration
-
-````
+- ✅ Start from Pololu 3pi+ embedded motion control
+- ✅ Implement modular robot behaviors: LED, buzzer, motors, sensors
+- ✅ Add UART communication between 3pi+ and Raspberry Pi
+- ✅ Upgrade to high-level control using Python
+- ✅ Extend to visual recognition, speech interaction, and path planning
 
 ---
 
-## 🚀 Quick Start
+## 📦 Current Feature Set (Stage 1: Embedded Control)
 
-### 1. Clone this repository
-```bash
-git clone https://github.com/your-username/3pi_base.git
-cd 3pi_base
-````
+| Feature         | Description                          |
+|----------------|--------------------------------------|
+| Button Input    | Starts the robot with button A       |
+| Motor Control   | Controls both wheels forward/backward|
+| LED Feedback    | Yellow LED for status indication     |
+| Buzzer Feedback | Plays simple startup melody          |
+| OLED Display    | Shows current system status          |
 
-### 2. Install board core
+---
+
+## 🧰 Environment Setup
+
+### Prerequisites
+
+- ✅ [Arduino CLI](https://arduino.github.io/arduino-cli/)
+- ✅ [VSCode](https://code.visualstudio.com/)
+- ✅ [Pololu A-Star Board Package](https://github.com/pololu/a-star)
+- ✅ [Pololu3piPlus32U4](https://github.com/pololu/3pi-plus-32u4-arduino-library)
+
+### Arduino Core Installation
 
 ```bash
 arduino-cli config add board_manager.additional_urls https://files.pololu.com/arduino/package_pololu_index.json
 arduino-cli core update-index
 arduino-cli core install pololu-a-star:avr
-```
+````
 
-### 3. Install required libraries
+### Library Installation
 
 ```bash
 arduino-cli lib install Pololu3piPlus32U4
 ```
 
-### 4. Compile and upload
+---
+
+## ⚙️ Project Structure
+
+```
+NovaBot/
+├── NovaBot.ino               # Main Arduino sketch
+└── .vscode/
+    └── arduino.json          # Board/port configuration for VSCode
+```
+
+---
+
+## 🔧 Build & Upload
+
+### Compile
 
 ```bash
 arduino-cli compile --fqbn pololu-a-star:avr:a-star32U4 .
+```
+
+### Upload
+
+```bash
 arduino-cli upload -p /dev/cu.usbmodem1101 --fqbn pololu-a-star:avr:a-star32U4 .
 ```
 
-### 5. (Optional) Open serial monitor
+### Monitor Serial Output
 
 ```bash
 arduino-cli monitor -p /dev/cu.usbmodem1101
@@ -76,25 +87,28 @@ arduino-cli monitor -p /dev/cu.usbmodem1101
 
 ---
 
-## 🧠 Functional Overview
+## 🧠 Roadmap
 
-```cpp
-buttonA.waitForPress();     // Waits for user to press Button A
-buzzer.play(...);           // Plays startup melody
-ledYellow(1);               // Turns on yellow LED
-motors.setSpeeds(...);      // Controls both wheels
-display.print(...);         // Shows text on OLED screen
-```
+| Stage      | Goal                                                      |
+| ---------- | --------------------------------------------------------- |
+| ✅ Stage 1  | Core embedded control (motors, sensors, buttons, display) |
+| 🔄 Stage 2 | Communication interface to Raspberry Pi (UART/I2C)        |
+| 🔜 Stage 3 | Raspberry Pi Python controller + Web dashboard            |
+| 🔜 Stage 4 | Add speech recognition (e.g., Vosk / Whisper)             |
+| 🔜 Stage 5 | Add camera + vision module (e.g., OpenCV or Edge YOLO)    |
+| 🔜 Stage 6 | Autonomous navigation and AI decision-making              |
 
 ---
 
-## 📈 Suggested Next Steps
+## 📸 Screenshots / Media (Optional)
 
-* Add line sensor reading and follow black line
-* Implement serial commands for remote control
-* Add obstacle avoidance using IR sensors
-* Use OLED screen for sensor debug info
-* Sync with ESP32 or Raspberry Pi over UART
+> (Add photos/videos of your robot, OLED screen, terminal output, etc.)
+
+---
+
+## 💡 Inspiration
+
+* The vision behind NovaBot is to explore how small robots can grow in intelligence—like a star going supernova—starting from basic motion to full-fledged autonomous reasoning and perception.
 
 ---
 
@@ -104,12 +118,24 @@ MIT License
 
 ---
 
-## 🙌 Acknowledgments
+## 🙌 Credits
 
-* [Pololu Robotics](https://www.pololu.com/)
-* [Arduino CLI](https://arduino.github.io/arduino-cli/)
+* Pololu Robotics — for amazing hardware
+* Arduino CLI team — for headless development tooling
+* You — for watching NovaBot grow ✨
 
-````
+```
 
+---
 
+## ✅ 提示
+
+你可以将项目结构命名为：
+```
+
+NovaBot/
+├── NovaBot.ino
+├── README.md
+└── .vscode/
+└── arduino.json
 
